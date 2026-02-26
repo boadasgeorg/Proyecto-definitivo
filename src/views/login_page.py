@@ -4,9 +4,12 @@
 # Este archivo contiene la clase LoginPage que se encarga de gestionar la interfaz de inicio de sesión.
 
 # --- Importaciones ---
+from typing import Self
 import customtkinter as ctk
 from tkinter import messagebox
 from tkinter import messagebox
+import os
+# ... el resto de tus imports
 
 # --- Clase principal ---
 class LoginPage(ctk.CTkFrame):
@@ -98,6 +101,38 @@ class LoginPage(ctk.CTkFrame):
         )
         btn_forgot.pack(side="left", padx=5)
 
+
+# --- SECCIÓN DEL PORTAFOLIOS ---
+
+        # --- PORTAFOLIO 1 (Georg) ---
+        self.link3 = ctk.CTkLabel(self, text="Portafolio de Georg", 
+                            font=("Segoe UI", 12, "underline"), text_color="cyan", cursor="hand2")
+        self.link3.pack(pady=(5, 0))
+        self.link3.bind("<Button-1>", lambda e: os.startfile("https://boadasgeorg.github.io/portafolio"))
+
+        # --- PORTAFOLIO 2 (Daniela) ---
+        self.link1 = ctk.CTkLabel(self, 
+                            text="Portafolio de Daniela", 
+                            font=("Segoe UI", 12, "underline"), 
+                            text_color="cyan", 
+                            cursor="hand2")
+        self.link1.pack(pady=(5, 0))
+        self.link1.bind("<Button-1>", lambda e: os.startfile("https://danielasrd.github.io/Portafolio"))
+
+        # --- PORTAFOLIO 3 (Vicky) ---
+        self.link2 = ctk.CTkLabel(self, 
+                            text="Portafolio de Vicky", 
+                            font=("Segoe UI", 12, "underline"), 
+                            text_color="cyan", 
+                            cursor="hand2")
+        self.link2.pack(pady=(5, 0)) # Menos espacio arriba para que estén juntos
+        self.link2.bind("<Button-1>", lambda e: os.startfile("https://vickyudo2003.github.io/Portafolio"))
+
+        # Texto aclaratorio opcional
+        ctk.CTkLabel(self, 
+text="(Haz clic arriba para ver nuestros portafolios)", 
+font=("Segoe UI", 10, "italic")).pack(pady=(0, 10))
+
     def show_register(self):
         """Muestra un diálogo de registro para nuevos alumnos."""
         dialog = ctk.CTkToplevel(self)
@@ -160,3 +195,5 @@ class LoginPage(ctk.CTkFrame):
                 self.on_user()
         else:
             messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
+
+
