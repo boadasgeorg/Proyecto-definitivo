@@ -244,7 +244,7 @@ class UserPage(ctk.CTkFrame):
                 return
 
             # Actualizar label de estado
-            self.fb_label.configure(text=f"Resultados encontrados: {len(results)}", text_color="cyan")
+            self.fb_label.configure(text=f"Resultados Encontrados: {len(results)}", text_color="cyan")
             
             for r in results:
                 card = ctk.CTkFrame(self.results_scroll, corner_radius=12, fg_color="#1a1a1a")
